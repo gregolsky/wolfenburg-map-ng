@@ -1,0 +1,47 @@
+<div class='container-fluid'>
+	<div class='row-fluid'>
+		<div class='span12'>
+			<h1>Dodaj miejsce</h1>
+		</div>
+	</div>
+	<div class='row-fluid'>
+		<div class='span12'>
+			<form class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="name">Nazwa miejsca</label>
+					<div class="controls">
+						<input type="text" ng-model='name' name='name' id="name" placeholder="np. Cmentarz" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="name">Opis</label>
+					<div class="controls">
+						<textarea type="text" ng-model='desc' name='desc' id="desc" class='span6' placeholder="np. Wyśmienite miejsce na weekendowy wypad z rodziną." />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="icon">Ikona</label>
+					<div class='controls'>
+						<div class="btn-group" data-toggle="buttons-radio">
+							<button type="button" class="btn btn-inverse" ng-repeat="i in icons" ng-click="setIcon(i)">
+								<i class='{{ i }}'></i>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<div class="controls">
+
+						<button type="button" class="btn btn-success" ng-click='savePlace();'>
+							Zapisz
+						</button>
+						<a href='#/map' class='btn' > <i class='icon-trash'></i> Anuluj </a>
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</div>

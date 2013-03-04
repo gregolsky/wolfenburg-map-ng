@@ -1,0 +1,13 @@
+application: wolfenburg-map-ng
+version: development
+runtime: python27
+api_version: 1
+threadsafe: false
+
+default_expiration: 7d
+
+handlers:
+- url: /app
+  static_dir: app
+- url: .*
+  script: app.app

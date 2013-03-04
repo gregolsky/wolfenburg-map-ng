@@ -1,0 +1,24 @@
+
+.city-map {
+	background-image: url('../img/wolfenburg.jpg');
+	background-repeat: no-repeat;
+}
+
+.map {
+	position: relative;
+}
+
+.mark {
+	color: tomato;
+	position: absolute;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	-webkit-transition: 0.3s;
+}
+
+.mark:hover{
+	color: firebrick;
+	-webkit-transition: 0.3s;
+	font-size: 200%;
+	margin-left: -10px;
+	margin-top: -20px;
+}

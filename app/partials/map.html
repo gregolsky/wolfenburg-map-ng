@@ -1,0 +1,10 @@
+
+<div class='map'>
+	<img src='img/wolfenburg-big.jpg' ng-click='mapClicked($event)' />
+	<div class='mark' style="left: {{ p.coords[0] }}%; top: {{ p.coords[1] }}%"
+	    bs-popover="{ title: p.name, content: p.desc, trigger: 'hover' }"
+		ng-repeat='p in places' >
+	<i class='icon-2x {{ p.icon }}' ></i>
+	</div>
+</div>
+
