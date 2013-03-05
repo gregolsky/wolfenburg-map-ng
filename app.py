@@ -2,6 +2,7 @@
 
 import webapp2
 import json
+import data
 
 class JsonHandler(webapp2.RequestHandler):
   
@@ -16,30 +17,35 @@ class Place:
     self.name = name
     self.coords = coords
     self.icon = icon
-    self.description = desc
+    self.desc = desc
     
-  def data(self):
-    return { 'id': self.id, 'name': self.name, 'coords': self.coords, 'icon': self.icon, 'desc': self.description }
-
-places = [
-  Place(1, 'Rzeźnia', [30, 45], 'icon-food', 'Tu zabijamy świnie.'),
-  Place(2, 'Siedziba komornika', [60, 68], 'icon-suitcase', 'Tu mieszka świnia.'),
-  Place(3, 'Burdel', [50, 30], 'icon-heart', 'A tu mieszkają urodziwe dziewczęta.')
-]
+class Dto:
+    def __init__(self, **kwargs):
+        self.__dict__ = kwargs
+    
+def place_data(p):
+  return p.__dict__
 
 class PlaceHandler(JsonHandler):
 
-  def get(self, id = None):
-    if not id:
-      self.jsonResponse([ p.data() for p in places ])
+  def get_repo(self):
+      return data.PlacesRepository()
+
+  def get(self):
+    if not self.request.get('id'):
+      repo = self.get_repo()
+      data = repo.list()
+      self.jsonResponse([ p for p in data ])
     else:
       self.jsonResponse(None)
       
   def post(self):
     data = json.loads(self.request.body)
-    newId = max([ p.id for p in places]) + 1
-    p = Place(newId, data['name'], data['coords'], data['icon'], data['desc'])
-    places.append(p)
+    if None in data.values():
+        raise
+    p = Dto(**data)
+    repo = self.get_repo()
+    self.jsonResponse(repo.save(p))
 
 routes = [
   ('/place.*', PlaceHandler)

@@ -6,17 +6,17 @@
 	</div>
 	<div class='row-fluid'>
 		<div class='span12'>
-			<form class="form-horizontal">
+			<form name='addPlaceForm' class="form-horizontal" novalidate ng-submit="savePlace()" >
 				<div class="control-group">
 					<label class="control-label" for="name">Nazwa miejsca</label>
 					<div class="controls">
-						<input type="text" ng-model='name' name='name' id="name" placeholder="np. Cmentarz" />
+						<input type="text" ng-class="{error: myForm.site.$invalid}" ng-model='name' name='name' id="name" placeholder="np. Cmentarz" required />
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="name">Opis</label>
 					<div class="controls">
-						<textarea type="text" ng-model='desc' name='desc' id="desc" class='span6' placeholder="np. Wyśmienite miejsce na weekendowy wypad z rodziną." />
+						<textarea type="text" ng-model='desc' name='desc' id="desc" class='span6' placeholder="np. Wyśmienite miejsce na weekendowy wypad z rodziną." required />
 					</div>
 				</div>
 				<div class="control-group">
@@ -31,9 +31,8 @@
 				</div>
 
 				<div class="control-group">
-					<div class="controls">
-
-						<button type="button" class="btn btn-success" ng-click='savePlace();'>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-success" ng-disabled="addPlaceForm.$invalid" >
 							Zapisz
 						</button>
 						<a href='#/map' class='btn' > <i class='icon-trash'></i> Anuluj </a>
