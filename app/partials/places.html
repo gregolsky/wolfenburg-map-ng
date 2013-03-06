@@ -4,7 +4,7 @@
 	<div class='row-fluid'>
 		<ul class="nav nav-pills nav-stacked">
 			<li ng-repeat='place in places'>
-				<a href='#' > <i class='{{ place.icon }}' ></i> {{ place.name }} </a>
+				<a href='#' map-marker-ref='{{ place.id }}' > <i class='{{ place.icon }}' ></i> {{ place.name }} </a>
 			</li>
 		</ul>
 	</div>

@@ -12,7 +12,7 @@ class Place(db.Model):
   date_created = db.DateTimeProperty(auto_now_add=True)
 
 def place_to_dto(p):
-    return { 'name': p.name, 'coords': [ p.coords.lat, p.coords.lon ], 'icon': p.icon, 'desc': p.desc}
+    return { 'id': p.key().id() , 'name': p.name, 'coords': [ p.coords.lat, p.coords.lon ], 'icon': p.icon, 'desc': p.desc}
   
 class PlacesRepository:
     def __init__(self):

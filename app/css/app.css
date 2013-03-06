@@ -15,7 +15,7 @@
 	-webkit-transition: 0.3s;
 }
 
-.mark:hover{
+.mark:hover, .mark-active {
 	color: firebrick;
 	-webkit-transition: 0.3s;
 	font-size: 200%;
