@@ -2,6 +2,10 @@
 
 function AppController($scope, place){
 	$scope.places = place.list();
+	
+	$scope.$on('places-changed', function(){
+		$scope.places = place.list();
+	});
 }
 
 AppController.$inject = ['$scope', 'place'];
@@ -28,11 +32,16 @@ function MapController($scope, $location){
 MapController.$inject = ['$scope', '$location'];
 
 
-function PlacesController(){
+function PlacesController($scope, place){
 	
+	$scope.removePlace = function(placeId){
+		place.remove(placeId);	
+		$scope.$emit('places-changed');
+	};
 }
 
-PlacesController.$inject = [];
+PlacesController.$inject = ['$scope', 'place'];
+
 
 function AddPlaceController($scope, $routeParams, $location, place){
 	
@@ -64,7 +73,7 @@ function AddPlaceController($scope, $routeParams, $location, place){
 		var coords = [ $routeParams['x'], $routeParams['y'] ];
 		var data = { name: $scope.name, coords: coords, icon: $scope.icon, desc: $scope.desc };
 		var p = place.create(data);
-		$scope.places.push(p);
+		$scope.$emit('places-changed');
 		$location.path('/');
 	};
 	

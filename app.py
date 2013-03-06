@@ -47,6 +47,11 @@ class PlaceHandler(JsonHandler):
     repo = self.get_repo()
     self.jsonResponse(repo.save(p))
 
+  def delete(self):
+    id = int(self.request.path.split('/')[-1])
+    repo = self.get_repo()
+    repo.delete(id)
+
 routes = [
   ('/place.*', PlaceHandler)
 ]

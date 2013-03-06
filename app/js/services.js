@@ -21,6 +21,9 @@ angular.module('wolfenburg-map.services', ['ngResource'])
 				var p = new Place(place);
 				p.$save();
 				return p;
+			},
+			'remove': function(id){
+				return Place.remove({ 'id': id });
 			}
 		};
 	

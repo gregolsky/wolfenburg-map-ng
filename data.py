@@ -27,3 +27,8 @@ class PlacesRepository:
     
     def list(self):
         return ( place_to_dto(p) for p in Place.gql("ORDER BY name") )
+    
+    def delete(self, id):
+        #key = db.Key.from_path(Place.__name__, id)
+        place = Place.get_by_id(id)
+        place.delete()
