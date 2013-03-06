@@ -9,15 +9,15 @@ angular.module('wolfenburg-map.services', ['ngResource'])
 		});
 	
 		var service = {
-			'get' : function(id) {
+			'get': function(id) {
 				return Place.get({
 					"id" : id
 				});
 			},
-			'list' : function() {
+			'list': function() {
 				return Place.query();
 			},
-			'create' : function(place) {
+			'create': function(place) {
 				var p = new Place(place);
 				p.$save();
 				return p;
