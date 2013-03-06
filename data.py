@@ -26,4 +26,4 @@ class PlacesRepository:
         return place_to_dto(p);
     
     def list(self):
-        return ( place_to_dto(p) for p in Place.gql("") )
+        return ( place_to_dto(p) for p in Place.gql("ORDER BY name") )
