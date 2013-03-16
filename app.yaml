@@ -1,4 +1,4 @@
-application: wolfenburg-map-ng
+application: wolfenburg-map
 version: development
 runtime: python27
 api_version: 1
