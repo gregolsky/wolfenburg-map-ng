@@ -1,0 +1,32 @@
+<div class='container'>
+	<div class='row-fluid' >
+
+		<div class="hero-unit" ng-hide='maps' >
+			<h1>Your own map with markers <i class='icon-map-marker'></i></h1>
+			<p>
+				Need an interactive map made from a JPG?
+				<br/>
+				Try it. Create a map from any picture and add some spicy markers to it.
+				<br/>
+				It's just few clicks away..
+			</p>
+			<p>
+				<a href='#/map/new' class="btn btn-primary btn-large"> <i class='icon-star'></i> Create a new map </a>
+			</p>
+		</div>
+
+		<div class='well' ng-show='maps' >
+			<ul>
+				<h2><i class='icon-picture'></i> Your recent maps </h2>
+				<li ng-repeat='map in maps' >
+					<p>
+						<a href='#/map/{{ map.id }}' >{{ map.name }}</a>
+					</p>
+					<p>
+						{{ map.desc }}
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

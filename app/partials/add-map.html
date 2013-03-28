@@ -1,0 +1,42 @@
+<div class='container' ng-controller='AddMapController' >
+	<div class='row-fluid'>
+		<div class='span12'>
+			<h1><i class='icon-picture'></i> Create a new map</h1>
+		</div>
+	</div>
+	<div class='row-fluid'>
+		<div class='span12'>
+			<form name='addMapForm' class="form-horizontal well" ng-submit="saveMap()" >
+				<div class="control-group">
+					<label class="control-label" for="name">Name</label>
+					<div class="controls">
+						<input type="text" ng-class="{error: myForm.site.$invalid}" ng-model='name' name='name' id="name" placeholder="Awesomeland of gummi" required />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="desc">Description</label>
+					<div class="controls">
+						<textarea type="text" ng-model='desc' name='desc' id="desc" class='span6' placeholder="Land far away from the neverland and stuff." required />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="img">Map Image URL</label>
+					<div class='controls'>
+						<input type='text' class='input-xlarge' ng-model='img' name='img' id="img" placeholder="http://something.com/else.jpg" required />
+					</div>
+				</div>
+
+				<div class="control-group">
+					<div class="form-actions">
+						<a href='#' class='btn' > <i class='icon-backward'></i> Back </a>
+						
+						<button type="submit" class="btn btn-success" ng-disabled="addMapForm.$invalid" >
+							<i class='icon-save'></i> Save
+						</button>
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

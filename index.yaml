@@ -5,3 +5,9 @@ indexes:
   properties:
   - name: name
     direction: asc
+    
+- kind: Map
+  ancestor: no
+  properties:
+    - name: name
+      direction: asc

@@ -1,16 +1,16 @@
-<div class='container-fluid' ng-controller='PlacesController' >
-	<h3><i class='icon-bookmark'></i> Miejsca </h3>
+<div class='container-fluid well' ng-controller='PlacesController' >
+	<h3><i class='icon-bookmark'></i> {{ map.name }} </h3>
 
 	<div class='row-fluid'>
 		<ul class="nav nav-pills nav-stacked">
-			<li ng-repeat='place in places'>
+			<li ng-repeat='place in map.places'>
 				<div class='container-fluid'>
 					<div class='row-fluid'>
 						<div class='span10' >
-							<a href='#' map-marker-ref='{{ place.id }}' > <i class='{{ place.icon }}' ></i> {{ place.name }} </a>
+							<a map-marker-ref='{{ place.id }}' > <i class='{{ place.icon }}' ></i> {{ place.name }} </a>
 						</div>
 						<div class='span2'>
-							<a href='#' ng-click='removePlace(place.id)' > <i class='icon-trash'></i></a>
+							<a ng-click='removePlace(place.id)' > <i class='icon-trash'></i></a>
 						</div>
 					</div>
 				</div>
@@ -20,7 +20,7 @@
 	<div class='row-fluid'>
 		<div class='span12'>
 			<p>
-				<i class='icon-info-sign'></i> Kliknij na mapie by dodać miejsce.
+				<i class='icon-info-sign'></i> Click on the map to add a place.
 			</p>
 		</div>
 	</div>
